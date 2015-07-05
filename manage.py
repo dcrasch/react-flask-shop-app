@@ -4,7 +4,7 @@ import os
 
 from flask.ext.script import Manager
 
-from flaskplate.app import create_app
+from app.app import create_app
 
 app = create_app(config=os.environ.get('APP_CONFIG', 'app.config.DevelopmentConfig'))
 manager = Manager(app)
