@@ -20,9 +20,14 @@ Inspired from https://github.com/cbalan/react-flask-todo-app
 
         jsx --watch static/jsx static/js
 
+ * alternative compile jsx using [Babeljs](https://babeljs.io/docs/setup/#babel_cli) 
+ 
+        npm install -g babel
+        babel --watch static/jsx static/js
+
  * run flask server
 
-        python app.py
+        python manage.py run
 
  * locations:
     - shop app: http://127.0.0.1:5000
