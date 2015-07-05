@@ -1,5 +1,6 @@
 import logging
 from flask import Blueprint, render_template, current_app
+from rfs.products.models import Product
 
 logger = logging.getLogger(__name__)
 

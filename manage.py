@@ -10,6 +10,11 @@ app = create_app(config=os.environ.get('APP_CONFIG', 'rfs.config.DevelopmentConf
 manager = Manager(app)
 
 @manager.command
+def create_all():
+    from rfs.app import db
+    db.create_all()
+
+@manager.command
 def run():
     """
     Run the application.  If the environment variable `APP_CONFIG` is not set,

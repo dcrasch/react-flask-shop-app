@@ -4,12 +4,13 @@ import logging
 from logging.handlers import RotatingFileHandler
 
 from flask import Flask, render_template
+from flask.ext.sqlalchemy import SQLAlchemy
 
-from rfs.products import products
 from rfs.config import DefaultConfig
 
-__all__ = ['create_app']
+db = SQLAlchemy()
 
+from products.views import products
 DEFAULT_BLUEPRINTS = (
     products,
 )
@@ -31,6 +32,8 @@ def create_app(config=None, app_name=None, blueprints=None):
     configure_blueprints(app, blueprints)
     configure_logging(app)
     configure_error_handlers(app)
+    configure_database(app)
+
     return app
 
 def configure_app(app, config=None):
@@ -88,3 +91,5 @@ def configure_error_handlers(app):
     def server_error_page(error):
         return render_template("errors/500.html"), 500
 
+def configure_database(app):
+    db.init_app(app)
