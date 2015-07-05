@@ -4,9 +4,9 @@ import os
 
 from flask.ext.script import Manager
 
-from app.app import create_app
+from rfs.app import create_app
 
-app = create_app(config=os.environ.get('APP_CONFIG', 'app.config.DevelopmentConfig'))
+app = create_app(config=os.environ.get('APP_CONFIG', 'rfs.config.DevelopmentConfig'))
 manager = Manager(app)
 
 @manager.command
@@ -20,7 +20,6 @@ def run():
         python manage.py run
     """
     app.run()
-
 
 if __name__ == "__main__":
     manager.run()

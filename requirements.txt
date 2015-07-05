@@ -1,3 +1,5 @@
 Flask
 Flask-RestPlus
 Flask-Script
+Flask-SQLAlchemy
+Flask-WTF
