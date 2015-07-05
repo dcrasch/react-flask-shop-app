@@ -20,11 +20,11 @@ Inspired from https://github.com/cbalan/react-flask-todo-app
 
         jsx --watch static/jsx static/js
 
- * run flask server
+* run flask server
 
         python manage.py run
 
- * locations:
+* locations:
     - shop app: http://127.0.0.1:5000
     - swagger.json: http://127.0.0.1:5000/swagger.json
     - api docs: http://127.0.0.1:5000/doc
