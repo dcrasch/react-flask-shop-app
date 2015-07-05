@@ -18,7 +18,7 @@ Inspired from https://github.com/cbalan/react-flask-todo-app
 
 * compile jsx files using [React tool](http://facebook.github.io/react/docs/tooling-integration.html#productionizing-precompiled-jsx) for development purpose
 
-        jsx --watch static/jsx static/js
+        jsx --watch static/js static/jsx
 
 * run flask server
 
