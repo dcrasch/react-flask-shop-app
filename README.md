@@ -16,7 +16,7 @@ Inspired from https://github.com/cbalan/react-flask-todo-app
 
         bower install
 
- * compile jsx files using [React tool](http://facebook.github.io/react/docs/tooling-integration.html#productionizing-precompiled-jsx) for development purpose
+* compile jsx files using [React tool](http://facebook.github.io/react/docs/tooling-integration.html#productionizing-precompiled-jsx) for development purpose
 
         jsx --watch static/jsx static/js
 
