@@ -2,13 +2,17 @@
 Shopping cart application build with flask and facebook react
 
 ## Installation
-Inspired from https://raw.githubusercontent.com/cbalan/react-flask-todo-app
+Inspired from https://github.com/cbalan/react-flask-todo-app
 
  * install python dependencies
 
         pip install -r requirements.txt
 
- * install js dependencies
+* install bower
+
+        npm install -g bower
+
+* install js dependencies
 
         bower install
 
