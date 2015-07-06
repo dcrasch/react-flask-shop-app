@@ -60,3 +60,4 @@ target/
 app/static/libs/*
 .module-cache/
 node_modules/
+test.db
