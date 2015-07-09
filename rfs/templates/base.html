@@ -15,20 +15,10 @@
     {% assets "js_all" %}
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
+
+    {% assets "jsx_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
     
-    {#
-    compiled with:
-    $ jsx app/static/jsx app/static/js
-    #}
-    <script type="text/javascript" src="/static/jsx/app.js"></script>
-
-    {#
-    in-browser JSX transformer
-    #}
-    {#
-    <script src="/static/libs/react/JSXTransformer.js"></script>
-    <script type="text/jsx" src="/static/js/app.js"></script>
-    #}
-
 </body>
 </html>

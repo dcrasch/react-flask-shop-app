@@ -105,11 +105,18 @@ def configure_assets(app):
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)
 
+    import jsx
+    jsx = Bundle("jsx/app.js",
+                 filters="jsx", output="js/app.js")
+    assets.register("jsx_all",jsx)
+    
     css = Bundle("libs/bootstrap/dist/css/bootstrap.css",
                  "css/app.css",
                  filters="cssmin",
                  output="libs/bundle.css")
     assets.register("css_all",css)
+    
+    
     
                  
     

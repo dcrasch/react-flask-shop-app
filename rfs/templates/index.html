@@ -16,7 +16,10 @@
     <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
 
-    <script type="text/javascript" src="/jsx/app.js"></script>
+    {% assets "jsx_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+
 
 </body>
 </html>
