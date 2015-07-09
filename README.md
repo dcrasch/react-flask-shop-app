@@ -17,10 +17,6 @@ and https://github.com/Fibio/flamaster
 
         bower install
 
- * compile jsx files using [React tool](http://facebook.github.io/react/docs/tooling-integration.html#productionizing-precompiled-jsx) for development purpose
-
-        jsx --watch static/js static/jsx
-
 * run flask server
 
         python manage.py run
