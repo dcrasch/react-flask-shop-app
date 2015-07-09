@@ -5,3 +5,6 @@ Flask-SQLAlchemy
 Flask-WTF
 satchless
 #trafaret
+Flask-Mail
+#Flask-Assets
+#Flask-Login

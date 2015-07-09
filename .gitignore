@@ -57,7 +57,8 @@ docs/_build/
 target/
 
 # project specific
-app/static/libs/*
+rfs/static/libs/*
 .module-cache/
 node_modules/
 test.db
+.webassets-cache/

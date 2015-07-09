@@ -5,10 +5,12 @@ from logging.handlers import RotatingFileHandler
 
 from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.assets import Environment, Bundle
 
 from rfs.config import DefaultConfig
 
 db = SQLAlchemy()
+assets = Environment()
 
 from products.views import products
 DEFAULT_BLUEPRINTS = (
@@ -33,7 +35,8 @@ def create_app(config=None, app_name=None, blueprints=None):
     configure_logging(app)
     configure_error_handlers(app)
     configure_database(app)
-
+    configure_assets(app)
+    
     return app
 
 def configure_app(app, config=None):
@@ -93,3 +96,21 @@ def configure_error_handlers(app):
 
 def configure_database(app):
     db.init_app(app)
+
+def configure_assets(app):
+    assets.init_app(app)
+    js = Bundle("libs/react/react.js",
+                "libs/jquery/dist/jquery.js",
+                "libs/bootstrap/dist/js/bootstrap.min.js",
+                filters="jsmin", output="libs/bundle.js")
+    assets.register("js_all",js)
+
+    css = Bundle("libs/bootstrap/dist/css/bootstrap.css",
+                 "css/app.css",
+                 filters="cssmin",
+                 output="libs/bundle.css")
+    assets.register("css_all",css)
+    
+                 
+    
+                

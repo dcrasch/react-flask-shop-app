@@ -3,8 +3,9 @@ import sys
 import os
 
 from flask.ext.script import Manager
+from flask.ext.assets import ManageAssets
 
-from rfs.app import create_app
+from rfs.app import create_app, assets
 
 app = create_app(config=os.environ.get('APP_CONFIG', 'rfs.config.DevelopmentConfig'))
 manager = Manager(app)
@@ -26,5 +27,9 @@ def run():
     """
     app.run()
 
+@manager.command
+def assets():
+    ManageAssets(assets)
+    
 if __name__ == "__main__":
     manager.run()

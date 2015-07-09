@@ -4,16 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>jQuery Integration</title>
-  <link rel="stylesheet" href="/static/libs/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
-  <link rel="stylesheet" href="/static/css/app.css" type="text/css" />
+{% assets "css_all" %}
+        <link rel="stylesheet" href="{{ ASSET_URL }}">
+{% endassets %}
+
 </head>
 <body>
     <div id="jqueryexample"></div>
 
-    <script src="/static/libs/react/react.js"></script>
-    <script type="text/javascript" src="/static/libs/jquery/dist/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="/static/libs/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
-
+    {% assets "js_all" %}
+    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
+    
     {#
     compiled with:
     $ jsx app/static/jsx app/static/js
