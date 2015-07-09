@@ -106,7 +106,8 @@ def configure_assets(app):
     assets.register("js_all",js)
 
     import jsx
-    jsx = Bundle("jsx/app.js",
+    jsx = Bundle("products/jsx/product.js",
+                "jsx/app.js",
                  filters="jsx", output="js/app.js")
     assets.register("jsx_all",jsx)
     
