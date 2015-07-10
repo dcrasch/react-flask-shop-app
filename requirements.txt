@@ -1,11 +1,12 @@
 Flask
 Flask-Script
 Flask-SQLAlchemy
+Flask-RestLess
 Flask-Assets
 cssmin
 jsmin
 pyreact
-#Flask-RestPlus
+
 #Flask-WTF
 #satchless
 #trafaret

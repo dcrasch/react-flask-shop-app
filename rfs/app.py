@@ -6,6 +6,7 @@ from logging.handlers import RotatingFileHandler
 from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment, Bundle
+from flask.ext.restless import APIManager
 
 from rfs.config import DefaultConfig
 
@@ -17,7 +18,12 @@ DEFAULT_BLUEPRINTS = (
     products,
 )
 
-def create_app(config=None, app_name=None, blueprints=None):
+from products.models import Product, ProductVariant
+DEFAULT_API_MODELS = (
+    Product, ProductVariant
+)
+
+def create_app(config=None, app_name=None, blueprints=None,api_models=None):
     """
     Create and configure the Flask app
     """
@@ -25,10 +31,13 @@ def create_app(config=None, app_name=None, blueprints=None):
         app_name = DefaultConfig.PROJECT
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
+    if api_models is None:
+        api_models = DEFAULT_API_MODELS
     app = Flask(app_name,
-                static_url_path='',
+                static_url_path='/static',
                 instance_relative_config=True
                )
+
     configure_app(app, config)
     configure_template_processors(app)
     configure_blueprints(app, blueprints)
@@ -36,7 +45,8 @@ def create_app(config=None, app_name=None, blueprints=None):
     configure_error_handlers(app)
     configure_database(app)
     configure_assets(app)
-    
+    configure_api(app,api_models)
+
     return app
 
 def configure_app(app, config=None):
@@ -116,9 +126,8 @@ def configure_assets(app):
                  filters="cssmin",
                  output="libs/bundle.css")
     assets.register("css_all",css)
-    
-    
-    
-                 
-    
-                
+
+def configure_api(app, api_models):
+    api_manager=APIManager(app,flask_sqlalchemy_db=db)
+    for api in api_models: 
+        api_manager.create_api(api)

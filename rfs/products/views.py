@@ -4,7 +4,7 @@ from rfs.products.models import Product
 
 logger = logging.getLogger(__name__)
 
-products = Blueprint('products', __name__, static_folder='static')
+products = Blueprint('products', __name__, static_folder='static',url_prefix='/products')
 
 @products.route('/')
 def index():
