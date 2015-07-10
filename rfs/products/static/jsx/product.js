@@ -1,7 +1,7 @@
 var FluxProduct = React.createClass({
     render: function() {
 	return (
-		<div>Hello world</div>
+		<h1 className="name">{this.props.product.title}</h1>
 	);
     }
 });
