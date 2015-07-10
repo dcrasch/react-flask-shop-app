@@ -1,6 +1,6 @@
 var FluxProduct = React.createClass({displayName: 'FluxProduct',
 	getInitialState: function() {
-	    return {product: []};
+	    return {data: []};
 	},
 	componentDidMount: function() {
 	    $.ajax({
@@ -8,7 +8,7 @@ var FluxProduct = React.createClass({displayName: 'FluxProduct',
 		    dataType: 'json',
 		    cache: false,
 		    success: function(data) {
-			this.setState({product: data});
+			this.setState({data: data});
 		    }.bind(this),
 		    error: function(xhr, status, err) {
 			console.error(this.props.url, status, err.toString());
@@ -17,7 +17,7 @@ var FluxProduct = React.createClass({displayName: 'FluxProduct',
 	},
     render: function() {
 	return (
-		React.createElement("h1", {className: "name"}, this.state.product.title)
+		React.createElement("h1", {className: "name"}, this.state.data.title)
 	);
     }
 });
