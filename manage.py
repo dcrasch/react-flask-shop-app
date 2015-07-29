@@ -15,6 +15,28 @@ def create_all():
     db.create_all()
 
 @manager.command
+def create_data():
+    from rfs.app import db
+    from rfs.products.models import Product, ProductVariant
+    product = Product()
+    product.title = "Product 1"
+    product.description = "Product 1 description"
+
+    productvariant = ProductVariant()
+    productvariant.title="ProductVariant 1"
+    productvariant.description="ProductVariant 1 description"
+    productvariant.price = 100
+    productvariant.sku = "sku 1"
+    productvariant.inventory= 10
+    productvariant.mainproduct=product
+    
+    db.session.add(product)
+    db.session.add(productvariant)
+    db.session.commit()
+
+
+
+@manager.command
 def run():
     """
     Run the application.  If the environment variable `APP_CONFIG` is not set,
