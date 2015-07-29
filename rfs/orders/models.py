@@ -1,4 +1,6 @@
 from rfs.app import db
+from rfs.app.products.model import ProductVarient
+
 
 class Order(db.Model):
     __tablename__ = 'orders'
@@ -8,8 +10,8 @@ class Order(db.Model):
 class OrderItems(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
-    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
-    product =  db.relationship("Product")
+    productvariant_id = db.Column(db.Integer, db.ForeignKey('productvariants.id'))
+    productvariant =  db.relationship("ProductVariant")
 
     quantity = db.Column(db.Integer)
     data = db.Column(db.String(1024), nullable=False)

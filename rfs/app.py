@@ -13,12 +13,16 @@ from rfs.config import DefaultConfig
 db = SQLAlchemy()
 assets = Environment()
 
-from products.views import products
+from rfs.products.views import products
+from rfs.cart.views import cart
+
 DEFAULT_BLUEPRINTS = (
-    products,
+    products, cart
 )
 
-from products.models import Product, ProductVariant
+from rfs.products.models import Product, ProductVariant
+from rfs.cart.models import Cart, CartLine
+
 DEFAULT_API_MODELS = (
     Product, ProductVariant
 )
@@ -115,7 +119,7 @@ def configure_assets(app):
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)
 
-    import jsx
+    import rfs.jsx
     jsx = Bundle("products/jsx/product.js",
                 "jsx/app.js",
                  filters="jsx", output="js/app.js")
