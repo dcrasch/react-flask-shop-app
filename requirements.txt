@@ -6,9 +6,9 @@ Flask-Assets
 cssmin
 jsmin
 pyreact
-
-#Flask-WTF
-#satchless
+satchless
+Flask-WTF
 #trafaret
 #Flask-Login
 #Flask-Mail
+#https://github.com/kvesteri/wtforms-json

@@ -119,7 +119,7 @@ def configure_assets(app):
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)
 
-    import rfs.jsx
+    import rfs.webassets_filters
     jsx = Bundle("products/jsx/product.js",
                 "jsx/app.js",
                  filters="jsx", output="js/app.js")
