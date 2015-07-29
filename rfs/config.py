@@ -21,6 +21,7 @@ class DefaultConfig(BaseConfig):
 class DevelopmentConfig(DefaultConfig):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
     SQLALCHEMY_ECHO = False
+    SECRET_KEY = os.urandom(24)
 
 class TestConfig(DefaultConfig):
     pass
