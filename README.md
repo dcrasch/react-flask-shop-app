@@ -21,7 +21,13 @@ and https://github.com/Fibio/flamaster
 
         python manage.py run
 
+* install database and optional data
+
+  	  python manage.py create_all
+
+	  python manage.py create_data
+
 * locations:
     - shop app: http://127.0.0.1:5000
-    - swagger.json: http://127.0.0.1:5000/swagger.json
-    - api docs: http://127.0.0.1:5000/doc
+    - swagger.json: http://127.0.0.1:5000/swagger.json (todo)
+    - api docs: http://127.0.0.1:5000/doc (todo)
