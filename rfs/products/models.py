@@ -8,6 +8,9 @@ class Product(db.Model):
     description = db.Column(db.Text)
     image = db.Column(db.String(512))
 
+    def __repr__(self):
+        return '<Product {!r}>'.format(self.title)
+    
 class ProductVariant(db.Model):
     __tablename__ = "productvariants"
     
@@ -20,3 +23,6 @@ class ProductVariant(db.Model):
 
     mainproduct_id = db.Column(db.Integer, db.ForeignKey('products.id'))
     mainproduct = db.relationship("Product", backref=db.backref('variants', order_by=id))
+
+    def __repr__(self):
+        return '<ProductVariant {!r}>'.format(self.title)
