@@ -116,6 +116,7 @@ def configure_assets(app):
     js = Bundle("libs/react/react.js",
                 "libs/jquery/dist/jquery.js",
                 "libs/bootstrap/dist/js/bootstrap.min.js",
+                "libs/fluxxor/build/fluxxor.min.js",
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)
 

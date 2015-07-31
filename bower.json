@@ -1,9 +1,9 @@
 {
-  "name": "react-flask-shop-app",
-  "version": "0.0.1",
-  "dependencies": {
-    "bootstrap": "*",
-    "react": "*",
-    "async": "*"
+    "name": "react-flask-shop-app",
+    "version": "0.0.1",
+    "dependencies": {
+	"bootstrap": "*",
+	"react": "*",
+	"fluxxor":"*"
   }
 }
