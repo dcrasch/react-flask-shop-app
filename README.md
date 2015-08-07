@@ -2,9 +2,7 @@
 Shopping cart application build with flask and facebook react
 
 ## Installation
-Inspired from https://github.com/cbalan/react-flask-todo-app,
-and https://github.com/Fibio/flamaster
-
+Inspired from https://github.com/Fibio/flamaster and https://github.com/limelights/todo-reflux.git
  * install python dependencies
 
         pip install -r requirements.txt

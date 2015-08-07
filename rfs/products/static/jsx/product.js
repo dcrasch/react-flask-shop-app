@@ -1,3 +1,10 @@
+var ProductClient = {
+    load : function 
+var ProductStore = Fluxxor.createStore({
+    initialize : function() {
+	this.loading = false;
+	this.error = null;
+	thi
 var FluxProduct = React.createClass({
 	getInitialState: function() {
 	    return {data: []};

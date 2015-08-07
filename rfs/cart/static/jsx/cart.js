@@ -1,23 +1,20 @@
-var FluxProduct = React.createClass({
-	getInitialState: function() {
-	    return {data: []};
-	},
-	componentDidMount: function() {
-	    $.ajax({
-		    url: this.props.url,
-		    dataType: 'json',
-		    cache: false,
-		    success: function(data) {
-			this.setState({data: data});
-		    }.bind(this),
-		    error: function(xhr, status, err) {
-			console.error(this.props.url, status, err.toString());
-		    }.bind(this)
-		});
-	},
+var constants = keyMirror({
+    CART_ADD: null,
+    CART_CHANGE : null,
+    CART_CLEAR : null});
+
+
+var FluxCart = React.createClass({
+    mixins: [FluxMixin],
+    
     render: function() {
 	return (
-		<h1 className="name">{this.state.data.title}</h1>
+		<h1 className="name">{this.state.cart.id}</h1>
+		<ul>
+		{Objects.keys(cartlines).map(function(id) {
+		    return <li key={id}>CartLine line={cartlines[id]} /></li>
+		})}
+	    </ul>
 	);
     }
 });

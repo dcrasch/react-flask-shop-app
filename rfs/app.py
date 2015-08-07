@@ -114,15 +114,17 @@ def configure_database(app):
 def configure_assets(app):
     assets.init_app(app)
     js = Bundle("libs/react/react.js",
-                "libs/jquery/dist/jquery.js",
-                "libs/bootstrap/dist/js/bootstrap.min.js",
-                "libs/fluxxor/build/fluxxor.min.js",
+                "libs/reflux/dist/reflux.js",
+                "libs/superagent/lib/client.js",
+                "libs/underscore/underscore.js",
+                
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)
 
     import rfs.webassets_filters
     jsx = Bundle("products/jsx/product.js",
-                "jsx/app.js",
+                 "cart/jsx/cart.js",
+                 "jsx/app.js",
                  filters="jsx", output="js/app.js")
     assets.register("jsx_all",jsx)
     

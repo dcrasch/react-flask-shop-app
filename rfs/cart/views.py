@@ -157,7 +157,7 @@ def clear():
             session.delete(i)
             session.commit()
             
-     cart_data = {"token": cart.token,
+    cart_data = {"token": cart.token,
                  "items": [{"id":i.productvariant.mainproduct.id,
                             "title":i.productvariant.mainproduct.title,
                             "description":i.productvariant.mainproduct.description,
