@@ -1,12 +1,22 @@
-var Constants = {
+/* initialize fluxxor */
+
+var flux = new Fluxxor.Flux();
+window.flux = flux;
+var FluxMixin = Fluxxor.FluxMixin(React);
+var StoreWatchMixin = Fluxxor.StoreWatchMixin;
+
+
+
+var constants = {
     FETCH_PRODUCT : "FETCH_PRODUCT"
 };
 
 var ProductStore = Fluxxor.createStore({
+    
     initialize : function() {
 	this.currentProduct = {};
 	this.bindActions(
-	    Constants.FETCH_PRODUCT, this.fetchProduct
+	    constants.FETCH_PRODUCT, this.fetchProduct
 	);
     },
     
@@ -29,17 +39,10 @@ var ProductStore = Fluxxor.createStore({
     
 });
 
-var stores = {
-    ProductStore : new ProductStore()
-};
-var actions = {
-    fetchProduct : function(productid) {
-	this.dispatch(Constants.FETCH_PRODUCT,{productid : productid});
-    }
-}
-
-var FluxMixin = Fluxxor.FluxMixin(React);
-var StoreWatchMixin = Fluxxor.StoreWatchMixin;
+flux.addStore("ProductStore", new ProductStore());
+flux.addAction("fetchProduct", function(productid) {
+    this.dispatch(constants.FETCH_PRODUCT,{productid : productid});
+});
 
 var FluxProduct = React.createClass({displayName: 'FluxProduct',
     mixins : [FluxMixin, StoreWatchMixin('ProductStore')],
@@ -62,10 +65,6 @@ var FluxProduct = React.createClass({displayName: 'FluxProduct',
 	);
     }
 });
-
-var flux = new Fluxxor.Flux(stores, actions);
-
-window.flux = flux;
 
 React.render(
 	React.createElement(FluxProduct, {flux: flux, productid: "1"}),
