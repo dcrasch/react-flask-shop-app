@@ -2,7 +2,7 @@
 Shopping cart application build with flask and facebook react
 
 ## Installation
-Inspired from https://github.com/Fibio/flamaster, https://github.com/limelights/todo-reflux.git, https://github.com/coinbolt/catshop and https://github.com/chadpaulson/react-isomorphic-video-game-search
+Inspired from https://github.com/MediaSapiens/flamaster, https://github.com/limelights/todo-reflux.git, https://github.com/coinbolt/catshop and https://github.com/chadpaulson/react-isomorphic-video-game-search
  * install python dependencies
 
         pip install -r requirements.txt
