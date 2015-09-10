@@ -1,4 +1,8 @@
+var flux = new Fluxxor.Flux(stores, actions);
+
+window.flux = flux;
+
 React.render(
-  <FluxProduct url="/api/products/1" />,
+	<FluxProduct flux={flux} productid="1" />,
   document.getElementById('flux-product')
 );

@@ -109,11 +109,13 @@ def configure_error_handlers(app):
         return render_template("errors/500.html"), 500
 
 def configure_database(app):
+
     db.init_app(app)
 
 def configure_assets(app):
     assets.init_app(app)
     js = Bundle("libs/react/react.js",
+                "libs/jquery/dist/jquery.js",
                 "libs/fluxxor/build/fluxxor.js",
                 filters="jsmin", output="libs/bundle.js")
     assets.register("js_all",js)

@@ -1,28 +1,42 @@
+var Constants = {
+    FETCH_PRODUCT : "FETCH_PRODUCT"
+};
+
 var ProductStore = Fluxxor.createStore({
-    actions : {
-	"FETCH_PRODUCT" : "fetchProduct",
-    },
     initialize : function() {
 	this.currentProduct = {};
+	this.bindActions(
+	    Constants.FETCH_PRODUCT, this.fetchProduct
+	);
     },
+    
     fetchProduct: function(payload) {
-	request
-	    .get(AppCfg.apiURL+"/api/products/"+payload.productid)
-	    .accept('json')
-	    .end(function(error,res) {
-		if (res.status == 200) {
-		    this.currentProduct=res.body;
-		}
-	    }.bind(this));
-	return this.emit('change');
+	var that = this;
+	jQuery.getJSON(
+	    "/api/products/"+payload.productid,
+	    function(data) {
+		that.currentProduct=data;
+		that.emit('change');
+	    });	
+	//return this.emit('change');
     },
+    
     getState : function() {
 	return {
 	    currentProduct : this.currentProduct
 	};
     }
+    
 });
 
+var stores = {
+    ProductStore : new ProductStore()
+};
+var actions = {
+    fetchProduct : function(productid) {
+	this.dispatch(Constants.FETCH_PRODUCT,{productid : productid});
+    }
+}
 
 var FluxMixin = Fluxxor.FluxMixin(React);
 var StoreWatchMixin = Fluxxor.StoreWatchMixin;
@@ -34,16 +48,17 @@ var FluxProduct = React.createClass({
     },
 	    
     getStateFromFlux: function() {
-	return this.getFlux().store('ProductStore').getState();
+	var flux = this.getFlux();
+	return flux.store('ProductStore').getState();
     },
     
     componentDidMount: function() {
-	this.getFlux().actions.loadProduct(this.props.productid);
+	this.getFlux().actions.fetchProduct(this.props.productid);
     },
     
     render: function() {
 	return (
-		<h1 className="name">{this.state.data.title}</h1>
+		<h1 className="name">{this.state.currentProduct.title}</h1>
 	);
     }
 });
