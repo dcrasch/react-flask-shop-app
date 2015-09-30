@@ -7,6 +7,7 @@ from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.assets import Environment, Bundle
 from flask.ext.restless import APIManager
+from flask_admin import Admin
 
 from rfs.config import DefaultConfig
 
@@ -27,7 +28,15 @@ DEFAULT_API_MODELS = (
     Product, ProductVariant
 )
 
-def create_app(config=None, app_name=None, blueprints=None,api_models=None):
+
+from rfs.products.admin import ProductAdmin
+
+DEFAULT_ADMIN_MODELS = (
+    ProductAdmin,
+)
+    
+
+def create_app(config=None, app_name=None, blueprints=None,api_models=None,admin_models=None):
     """
     Create and configure the Flask app
     """
@@ -37,6 +46,8 @@ def create_app(config=None, app_name=None, blueprints=None,api_models=None):
         blueprints = DEFAULT_BLUEPRINTS
     if api_models is None:
         api_models = DEFAULT_API_MODELS
+    if admin_models is None:
+        admin_models = DEFAULT_ADMIN_MODELS
     app = Flask(app_name,
                 static_url_path='/static',
                 instance_relative_config=True
@@ -50,6 +61,7 @@ def create_app(config=None, app_name=None, blueprints=None,api_models=None):
     configure_database(app)
     configure_assets(app)
     configure_api(app,api_models)
+    configure_admin(app,admin_models)
 
     return app
 
@@ -80,7 +92,6 @@ def configure_logging(app):
 
 
 def configure_template_processors(app):
-
     @app.context_processor
     def my_processors():
         def now(format="%d-%m-%d %H:%M:%S"):
@@ -89,7 +100,6 @@ def configure_template_processors(app):
         return dict(now=now)
 
 def configure_blueprints(app, blueprints):
-
     for blueprint in blueprints:
         app.register_blueprint(blueprint)
 
@@ -109,7 +119,6 @@ def configure_error_handlers(app):
         return render_template("errors/500.html"), 500
 
 def configure_database(app):
-
     db.init_app(app)
 
 def configure_assets(app):
@@ -138,3 +147,9 @@ def configure_api(app, api_models):
     api_manager=APIManager(app,flask_sqlalchemy_db=db)
     for api in api_models: 
         api_manager.create_api(api)
+
+
+def configure_admin(app,admin_models):
+    admin = Admin(app,name="Store backend")
+    for admin_view in admin_models:
+        admin.add_view(admin_view(Product,db.session))

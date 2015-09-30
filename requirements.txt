@@ -2,6 +2,7 @@ Flask
 Flask-Script
 Flask-SQLAlchemy
 Flask-RestLess
+Flask-Admin
 Flask-Assets
 cssmin
 jsmin
@@ -14,4 +15,3 @@ pyreact
 #Flask-Mail
 #https://github.com/kvesteri/wtforms-json
 #flask-restless-security
-#flask-admin
