@@ -1,3 +1,6 @@
+## hack!!! remove when new version is released https://github.com/mitsuhiko/werkzeug/issues/798
+werkzeug==0.10.4   
+
 Flask
 Flask-Script
 Flask-SQLAlchemy

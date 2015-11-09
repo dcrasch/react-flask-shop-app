@@ -29,3 +29,9 @@ Inspired from https://github.com/MediaSapiens/flamaster, https://github.com/lime
     - shop app: http://127.0.0.1:5000
     - swagger.json: http://127.0.0.1:5000/swagger.json (todo)
     - api docs: http://127.0.0.1:5000/doc (todo)
+
+* demo:
+    - http://127.0.0.1:5000/products/
+    - http://127.0.0.1:5000/admin/
+    
+    
