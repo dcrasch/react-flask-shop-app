@@ -15,14 +15,13 @@ db = SQLAlchemy()
 assets = Environment()
 
 from rfs.products.views import products
-from rfs.cart.views import cart
+from rfs.orders.views import orders
 
 DEFAULT_BLUEPRINTS = (
-    products, cart
+    products, orders
 )
 
 from rfs.products.models import Product, ProductVariant
-from rfs.cart.models import Cart, CartLine
 
 DEFAULT_API_MODELS = (
     Product, ProductVariant

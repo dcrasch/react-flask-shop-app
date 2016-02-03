@@ -1,12 +1,12 @@
 import logging
 from flask import Blueprint, render_template, current_app
-from rfs.products.models import Product
+from rfs.orders.models import Order
 
 logger = logging.getLogger(__name__)
 
-products = Blueprint('products', __name__, static_folder='static',url_prefix='/products')
+orders = Blueprint('orderss', __name__, static_folder='static',url_prefix='/orders')
 
-@products.route('/')
+@orders.route('/')
 def index():
     current_app.logger.debug('Do things here')
     return render_template('index.html')
