@@ -7,8 +7,8 @@ var StoreWatchMixin = Fluxxor.StoreWatchMixin;
 
 
 
-var constants = {
-    FETCH_PRODUCT : "FETCH_PRODUCT"
+var product_constants = {
+    FETCH_PRODUCT : 'FETCH_PRODUCT'
 };
 
 var ProductStore = Fluxxor.createStore({
@@ -16,7 +16,7 @@ var ProductStore = Fluxxor.createStore({
     initialize : function() {
 	this.currentProduct = {};
 	this.bindActions(
-	    constants.FETCH_PRODUCT, this.fetchProduct
+	    product_constants.FETCH_PRODUCT, this.fetchProduct
 	);
     },
     
@@ -41,7 +41,7 @@ var ProductStore = Fluxxor.createStore({
 
 flux.addStore("ProductStore", new ProductStore());
 flux.addAction("fetchProduct", function(productid) {
-    this.dispatch(constants.FETCH_PRODUCT,{productid : productid});
+    this.dispatch(product_constants.FETCH_PRODUCT,{productid : productid});
 });
 
 var FluxProduct = React.createClass({

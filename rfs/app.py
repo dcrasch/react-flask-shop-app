@@ -22,9 +22,12 @@ DEFAULT_BLUEPRINTS = (
 )
 
 from rfs.products.models import Product, ProductVariant
+from rfs.orders.models import Order
 
 DEFAULT_API_MODELS = (
-    Product, ProductVariant
+    Product,
+    ProductVariant,
+    Order
 )
 
 
@@ -131,9 +134,9 @@ def configure_assets(app):
     import rfs.webassets_filters
     jsx = Bundle(
         "products/jsx/product.js",
-#                 "cart/jsx/cart.js",
-                 "jsx/app.js",
-                 filters="jsx", output="js/app.js")
+        "orders/jsx/cart.js",
+        "jsx/app.js",
+        filters="jsx", output="js/app.js")
     assets.register("jsx_all",jsx)
     
     css = Bundle("libs/bootstrap/dist/css/bootstrap.css",

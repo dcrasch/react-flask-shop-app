@@ -1,25 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Product Page</title>
-{% assets "css_all" %}
-        <link rel="stylesheet" href="{{ ASSET_URL }}">
-{% endassets %}
-	
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Product Page</title>
+  {% assets "css_all" %}
+  <link rel="stylesheet" href="{{ ASSET_URL }}">
+  {% endassets %}	
 </head>
 <body>
-    <div id="flux-product"></div>
-
-    {% assets "js_all" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
-    {% assets "jsx_all" %}
-    <script type="text/javascript" src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-
-
+  <div id="flux-product"></div>
+  
+  <div id="flux-cart"></div>
+  
+  {% assets "js_all" %}
+  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+  
+  {% assets "jsx_all" %}
+  <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+  {% endassets %}
+  
 </body>
 </html>

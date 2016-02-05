@@ -18,6 +18,8 @@ def create_all():
 def create_data():
     from rfs.app import db
     from rfs.products.models import Product, ProductVariant
+    from rfs.orders.models import Order,OrderLine
+    
     product = Product()
     product.title = "Product 1"
     product.description = "Product 1 description"
@@ -30,10 +32,19 @@ def create_data():
     productvariant.inventory= 10
     productvariant.mainproduct=product
     
-    db.session.add(product)
-    db.session.add(productvariant)
-    db.session.commit()
+    order = Order()
+    order.id=1
+    order.ordertype=10
+    order.title ='Shopping basket'
 
+    orderline = OrderLine()
+    orderline.productvariant=productvariant
+    orderline.quantity=1
+    orderline.extradata="test orderline"
+    orderline.order=order
+    
+    db.session.add(order)
+    db.session.commit()
 
 
 @manager.command
