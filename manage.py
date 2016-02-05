@@ -40,6 +40,7 @@ def create_data():
     orderline = OrderLine()
     orderline.productvariant=productvariant
     orderline.quantity=1
+    orderline.unit_price=100
     orderline.extradata="test orderline"
     orderline.order=order
     

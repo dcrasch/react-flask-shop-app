@@ -17,11 +17,13 @@ class Order(db.Model):
 class OrderLine(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
-    productvariant_id = db.Column(db.Integer, db.ForeignKey('productvariants.id'))
-    productvariant =  db.relationship("ProductVariant")
-
-    quantity = db.Column(db.Integer)
-    extradata = db.Column(db.String(1024), nullable=False)
-                         
     order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
     order = db.relationship("Order", backref=db.backref('orderlines', order_by=id)) 
+        
+    productvariant_id = db.Column(db.Integer, db.ForeignKey('productvariants.id'),nullable=True)
+    productvariant =  db.relationship("ProductVariant")
+        
+    quantity = db.Column(db.Integer)
+    unit_price = db.Column(db.Integer)    
+    extradata = db.Column(db.String(1024), nullable=False)
+                         

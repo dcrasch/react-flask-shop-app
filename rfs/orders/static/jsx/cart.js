@@ -19,7 +19,6 @@ var CartStore = Fluxxor.createStore({
 	jQuery.getJSON(
 	    "/api/orders/"+payload.cartid,
 	    function(data) {
-		console.log("deze",data);
 		that.currentCart=data;
 		that.emit('change');
 	    });	
@@ -41,7 +40,7 @@ flux.addAction("fetchCart", function(cartid) {
 
 var ListItemWrapper = React.createClass({
     render: function() {
-	return (<li>CartLine {this.props.data.extradata} {this.props.data.quantity}x</li>);
+	return (<li>CartLine {this.props.data.extradata} {this.props.data.quantity} x € {this.props.data.unit_price}</li>);
     }
 });
 

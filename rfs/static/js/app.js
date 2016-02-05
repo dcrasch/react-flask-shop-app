@@ -87,7 +87,6 @@ var CartStore = Fluxxor.createStore({
 	jQuery.getJSON(
 	    "/api/orders/"+payload.cartid,
 	    function(data) {
-		console.log("deze",data);
 		that.currentCart=data;
 		that.emit('change');
 	    });	
@@ -109,7 +108,7 @@ flux.addAction("fetchCart", function(cartid) {
 
 var ListItemWrapper = React.createClass({displayName: "ListItemWrapper",
     render: function() {
-	return (React.createElement("li", null, "CartLine ", this.props.data.extradata, " ", this.props.data.quantity, "x"));
+	return (React.createElement("li", null, "CartLine ", this.props.data.extradata, " ", this.props.data.quantity, " x € ", this.props.data.unit_price));
     }
 });
 
