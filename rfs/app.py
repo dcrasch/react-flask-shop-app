@@ -139,8 +139,7 @@ def configure_assets(app):
         filters="jsx", output="js/app.js")
     assets.register("jsx_all",jsx)
     
-    css = Bundle("libs/bootstrap/dist/css/bootstrap.css",
-                 "css/app.css",
+    css = Bundle("css/app.css",
                  filters="cssmin",
                  output="libs/bundle.css")
     assets.register("css_all",css)

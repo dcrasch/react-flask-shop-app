@@ -2,8 +2,8 @@
     "name": "react-flask-shop-app",
     "version": "0.0.1",
     "dependencies": {
-	"jquery" : "*",
-	"react": "*",
-	"fluxxor" : "*"
+        "jquery": "~2.2.0",
+        "react": "~0.14.7",
+        "fluxxor": "~1.7.3"
     }
 }
