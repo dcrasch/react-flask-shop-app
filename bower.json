@@ -4,6 +4,11 @@
     "dependencies": {
         "jquery": "~2.2.0",
         "react": "~0.14.7",
-        "fluxxor": "~1.7.3"
+	"react-tooltip" :"*",
+	"es6-promise" : "*",
+	"object-assign" : "*",
+	"superagent" : "*",
+	"immutable" : "*",
+	"lodash" : "*"
     }
 }
