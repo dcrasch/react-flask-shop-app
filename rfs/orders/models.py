@@ -1,6 +1,8 @@
+from sqlalchemy import Column
 from sqlalchemy_utils import ChoiceType
 
-from rfs.app import db
+from ..extensions import db
+
 from rfs.products.models import ProductVariant
 
 class Order(db.Model):
@@ -10,20 +12,19 @@ class Order(db.Model):
              (30,'Confirmed'),
              (40,'Paid'),
              (50,'Completed')]
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(512), nullable=False)
-    ordertype = db.Column(db.Integer)
+    id = Column(db.Integer, primary_key=True)
+    title = Column(db.String(512), nullable=False)
+    ordertype = Column(db.Integer)
 
 class OrderLine(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = Column(db.Integer, primary_key=True)
 
-    order_id = db.Column(db.Integer, db.ForeignKey('orders.id'))
+    order_id = Column(db.Integer, db.ForeignKey('orders.id'))
     order = db.relationship("Order", backref=db.backref('orderlines', order_by=id)) 
         
-    productvariant_id = db.Column(db.Integer, db.ForeignKey('productvariants.id'),nullable=True)
+    productvariant_id = Column(db.Integer, db.ForeignKey('productvariants.id'),nullable=True)
     productvariant =  db.relationship("ProductVariant")
         
-    quantity = db.Column(db.Integer)
-    unit_price = db.Column(db.Integer)    
-    extradata = db.Column(db.String(1024), nullable=False)
-                         
+    quantity = Column(db.Integer)
+    unit_price = Column(db.Integer)    
+    extradata = Column(db.String(1024), nullable=False)                        

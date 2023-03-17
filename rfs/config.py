@@ -13,20 +13,15 @@ class BaseConfig(object):
     LOG_FOLDER = os.path.join(PROJECT_ROOT, 'logs')
     if not os.path.exists(LOG_FOLDER):
         os.mkdir(LOG_FOLDER)
-    SQLALCHEMY_DATABASE_URI = 'sqlite://:memory:'
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 class DefaultConfig(BaseConfig):
     DEBUG=True
-    
 
-class DevelopmentConfig(DefaultConfig):
+    # sql alchemy
     SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
     SQLALCHEMY_ECHO = False
+    
     SECRET_KEY = os.urandom(24)
-    ##ASSETS_DEBUG = True
-class TestConfig(DefaultConfig):
-    pass
 
-class ProductionConfig(BaseConfig):
-    DEBUG = False
 

@@ -1,0 +1,18 @@
+swagger: '2.0'
+info:
+  title: "rfs rest api"
+  description: "Rest api for products and orders"
+  version: "1.0.0"
+paths:
+  /products:
+    get:
+      operationId: rfs.products.api.get
+      parameters:
+        - name: limit
+          in: query
+          type: integer
+          minimum: 0
+          default: 100
+      responses:
+        '200':
+          description: "List of products"
