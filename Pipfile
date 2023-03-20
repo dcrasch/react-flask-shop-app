@@ -9,8 +9,9 @@ flask-sqlalchemy = "3.0.3"
 sqlalchemy-utils = "*"
 flask-marshmallow = "*"
 marshmallow-sqlalchemy = "*"
+connexion = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
