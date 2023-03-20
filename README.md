@@ -11,6 +11,10 @@ cd frontend
 npm install
 ```
 
+```
+pipenv install connexion[swagger-ui]
+```
+
 ## Running api server
 ```
 pipenv shell
@@ -24,3 +28,5 @@ cd frontend
 npm start
 ```
 
+## Swagger UI
+http://127.0.0.1:5000/ui/
