@@ -1,27 +1,38 @@
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Shop } from "./pages/Shop";
 
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-    const [currentProduct, setCurrentProduct] = useState(0);
-
-     useEffect(() => {
-    fetch('/products').then(res => res.json()).then(data => {
-      setCurrentProduct(data[0]);
-    });
-  }, []);
-	
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          { currentProduct.title }
-        </p>
-      </header>
+    <div>
+      <h1> Flask shop </h1>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="shop" element={<Shop />} />
+
+        </Route>
+      </Routes>
     </div>
   );
 }
 
-export default App;
+function Layout() {
+  return (
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/shop">Shop</Link>
+          </li>
+        </ul>
+      </nav>
+      <hr />
+      <Outlet />
+    </div >
+  );
+}
