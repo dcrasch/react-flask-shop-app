@@ -18,7 +18,7 @@ def create_app(config=None, app_name=None, blueprints=None):
 
     application = connexion.FlaskApp("rfs",
                         specification_dir="spec")
-    application.add_api("swagger.yml")
+    application.add_api("swagger.yml",base_path="/api")
     app = application.app
 
     configure_app(app, config)
