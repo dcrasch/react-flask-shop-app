@@ -1,13 +1,14 @@
-import NavBar from "../components/NavBar";
-import "../styles/globals.css";
+import NavigationBar from "../components/NavigationBar"
+import Footer from "../components/Footer"
 
-function MyApp({ Component, pageProps }) {
+import "../styles/globals.css"
+
+export default function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <NavBar />
+    <div className="flex flex-col min-h-screen justify-between">
+      <NavigationBar />
       <Component {...pageProps} />
-    </>
-  );
+      <Footer />
+    </div>
+  )
 }
-
-export default MyApp;
