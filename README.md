@@ -21,11 +21,15 @@ pipenv shell
 flask --app rfs run
 ```
 
+or 
+
+```pipenv run flask --app rfs run```
+
 ## Running frontend
 
 ```
 cd frontend
-npm start
+npm run dev
 ```
 
 ## Swagger UI
