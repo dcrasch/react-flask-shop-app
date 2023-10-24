@@ -6,8 +6,6 @@ class BaseConfig(object):
         os.path.dirname(__file__)
     ))
 
-    DEBUG = True
-    
     ADMINS = []
     SECRET_KEY = None
     LOG_FOLDER = os.path.join(PROJECT_ROOT, 'logs')
@@ -16,8 +14,7 @@ class BaseConfig(object):
     SQLALCHEMY_DATABASE_URI = 'sqlite://'
 
 class DefaultConfig(BaseConfig):
-    DEBUG=True
-
+    PROJECT = "rfs"
     # sql alchemy
     SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
     SQLALCHEMY_ECHO = False

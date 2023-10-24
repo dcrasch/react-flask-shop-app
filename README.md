@@ -16,14 +16,11 @@ poetry add connexion[swagger-ui]  -D --allow-prereleases
 ```
 
 ## Running api server
+
 ```
 poetry shell
-flask --app rfs run
+uvicorn rfs:create_app  --port 5000
 ```
-
-or 
-
-```poetry run flask --app rfs run```
 
 ## Running frontend
 
