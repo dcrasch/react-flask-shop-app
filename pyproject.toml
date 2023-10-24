@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "react-flask-shop-app"
+version = "0.3.0"
+description = "A shop front with react and a backend with flask and python"
+authors = ["David Rasch"]
+license = "GPL3"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Flask = "3"
+Flask-SQLAlchemy = "3.1"
+flask-marshmallow = "^0.15.0"
+marshmallow-sqlalchemy = "^0.29.0"
+connexion = {extras = ["flask","swagger-ui"], version = "^3.0.0a7", allow-prereleases = true}
+sqlalchemy-utils = "^0.41.1"
+uvicorn = "^0.23.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -6,7 +6,7 @@ class BaseConfig(object):
         os.path.dirname(__file__)
     ))
 
-    DEBUG = False
+    DEBUG = True
     
     ADMINS = []
     SECRET_KEY = None

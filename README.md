@@ -4,26 +4,26 @@ Shop build with reactjs and flask
 ## Installation
 
 ```
-pipenv install
-pipenv shell
+poetry install
+poetry shell
 flask --app rfs initdb
 cd frontend
 npm install
 ```
 
 ```
-pipenv install connexion[swagger-ui]
+poetry add connexion[swagger-ui]  -D --allow-prereleases
 ```
 
 ## Running api server
 ```
-pipenv shell
+poetry shell
 flask --app rfs run
 ```
 
 or 
 
-```pipenv run flask --app rfs run```
+```poetry run flask --app rfs run```
 
 ## Running frontend
 
@@ -41,4 +41,17 @@ http://127.0.0.1:5000/ui/
 ```
 docker build --tag python-docker .
 docker run -d -p 5000:5000 python-docker
+```
+
+
+## Poetry
+
+### Create requirements.txt without hashes
+```
+poetry export --without-hashes --format=requirements.txt > requirements.txt
+```
+
+### Install pre-release version of package
+```
+poetry add connexion --allow-prereleases
 ```

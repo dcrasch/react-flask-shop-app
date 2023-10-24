@@ -9,6 +9,8 @@ DEFAULT_BLUEPRINTS = (
     #products,
     #orders
 )
+def post_greeting(name: str) -> str:
+    return f"Hello {name}"
 
 def create_app(config=None, app_name=None, blueprints=None):
     if app_name is None:
@@ -17,8 +19,8 @@ def create_app(config=None, app_name=None, blueprints=None):
         blueprints = DEFAULT_BLUEPRINTS
 
     application = connexion.FlaskApp("rfs",
-                        specification_dir="spec")
-    application.add_api("swagger.yml",base_path="/api")
+                                     specification_dir="spec/")
+    application.add_api("hello.yaml",base_path="/api")
     app = application.app
 
     configure_app(app, config)
